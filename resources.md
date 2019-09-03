@@ -17,3 +17,6 @@ The giphy SDK and API documentation can be found here
 
 ##API KEY:
 VlvVPXjNhFX2o8hyr5r9CRmESCrKas6w
+
+#Project Layout
+The Ionic Super Starter github has an explanation of the project layout and what does what.
