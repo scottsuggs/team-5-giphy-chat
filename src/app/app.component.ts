@@ -11,11 +11,12 @@ import { routes } from './app-routing.module';
 })
 export class AppComponent {
   public appPages = [];
-  private menuRoutes = ['home', 'chats'];
+  private menuRoutes = ['home', 'chats', 'chat'];
   private menuIcons = {
     //current icons, feel free to add any for your routes
     home: 'home',
     chats: 'chatbubbles',
+    chat: 'contact',
     list: 'list'
   };
 
