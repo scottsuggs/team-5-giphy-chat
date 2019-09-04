@@ -25,4 +25,7 @@ export class ChatsPage implements OnInit {
     });
     console.log('chat added');
   }
+  handleChatClick(id: string) {
+    console.log('opening chat: ', id);
+  }
 }

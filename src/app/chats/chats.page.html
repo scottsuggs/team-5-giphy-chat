@@ -16,9 +16,22 @@
       <ion-text> </ion-text>
     </ion-list-header>
     <div *ngIf="chats">
-      <ion-item *ngFor="let chat of chats | async; index as i">
-        <ion-icon name="person"> </ion-icon>
-        <ion-label> {{ chat.members[i] }} </ion-label>
+      <ion-item
+        [routerLink]="['/chat']"
+        (click)="handleChatClick(chat.id)"
+        *ngFor="let chat of chats | async; index as i"
+      >
+        <ion-avatar slot="start">
+          <ion-icon size="large" name="person"> </ion-icon>
+        </ion-avatar>
+        <ion-label>
+          <h1>
+            {{ chat.members[0] }}
+          </h1>
+          <h2>
+            Chat Sample Here
+          </h2></ion-label
+        >
       </ion-item>
     </div>
   </ion-list>
