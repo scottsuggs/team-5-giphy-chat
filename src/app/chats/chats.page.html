@@ -7,4 +7,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content> </ion-content>
+<ion-content>
+  <ion-list>
+    <ion-button (click)="addChat()">
+      Add Chat
+    </ion-button>
+    <ion-list-header>
+      <ion-text> </ion-text>
+    </ion-list-header>
+    <div *ngIf="chats">
+      <ion-item *ngFor="let chat of chats | async; index as i">
+        <ion-icon name="person"> </ion-icon>
+        <ion-label> {{ chat.members[i] }} </ion-label>
+      </ion-item>
+    </div>
+  </ion-list>
+</ion-content>

@@ -1,3 +1,5 @@
+import { Observable, of } from 'rxjs';
+
 import { Chat } from '../interfaces/chat';
 import { Injectable } from '@angular/core';
 
@@ -5,11 +7,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ChatListService {
-  chats: Chat[];
+  chats: Chat[] = [];
   constructor() {}
 
-  getChats(): Chat[] {
-    return this.chats;
+  getChats(): Observable<Chat[]> {
+    return of(this.chats);
   }
 
   private setChats(newArray: Chat[]) {
