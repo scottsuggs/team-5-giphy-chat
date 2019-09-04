@@ -21,7 +21,7 @@ export class AppComponent {
   }
   getAppPages() {
     routes.forEach(route => {
-      if (route.path) {
+      if (this.getMenuRoutes(route.path)) {
         this.appPages.push({
           title: route.path,
           url: '/' + route.path,
@@ -30,8 +30,17 @@ export class AppComponent {
       }
     });
   }
-  getIcon(str: string) {
+
+  //returns true if the given route should be in the menu routes
+  getMenuRoutes(route: string): boolean {
+    const menuRoutes = ['home', 'chats'];
+    return menuRoutes.includes(route);
+  }
+
+  //returns the string name of an icon if the path matches a key
+  getIcon(path: string): string {
     const icons = {
+      //current icons, feel free to add any for your routes
       home: 'home',
       chats: 'chatbubbles',
       list: 'list'
@@ -39,9 +48,9 @@ export class AppComponent {
     let icon;
     for (let prop in icons) {
       console.log('prop', prop);
-      console.log('str', str);
+      console.log('str', path);
 
-      if (str == prop) {
+      if (path == prop) {
         icon = icons[prop];
         console.log('match found: ', icon);
       }
