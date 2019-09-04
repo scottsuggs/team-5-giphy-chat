@@ -11,6 +11,13 @@ import { routes } from './app-routing.module';
 })
 export class AppComponent {
   public appPages = [];
+  private menuRoutes = ['home', 'chats'];
+  private menuIcons = {
+    //current icons, feel free to add any for your routes
+    home: 'home',
+    chats: 'chatbubbles',
+    list: 'list'
+  };
 
   constructor(
     private platform: Platform,
@@ -33,25 +40,18 @@ export class AppComponent {
 
   //returns true if the given route should be in the menu routes
   getMenuRoutes(route: string): boolean {
-    const menuRoutes = ['home', 'chats'];
-    return menuRoutes.includes(route);
+    return this.menuRoutes.includes(route);
   }
 
   //returns the string name of an icon if the path matches a key
   getIcon(path: string): string {
-    const icons = {
-      //current icons, feel free to add any for your routes
-      home: 'home',
-      chats: 'chatbubbles',
-      list: 'list'
-    };
     let icon;
-    for (let prop in icons) {
+    for (let prop in this.menuIcons) {
       console.log('prop', prop);
       console.log('str', path);
 
       if (path == prop) {
-        icon = icons[prop];
+        icon = this.menuIcons[prop];
         console.log('match found: ', icon);
       }
     }
