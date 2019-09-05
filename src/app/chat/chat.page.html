@@ -10,6 +10,9 @@
 </ion-header>
 
 <ion-content>
+  <div *ngIf="messages">
+
+  </div>
   <ion-card>
     <ion-icon name="contact" ></ion-icon>
     <ion-label>Luke</ion-label>
@@ -21,7 +24,7 @@
     <ion-card-content>hey</ion-card-content>
   </ion-card>
 
-  <ion-button>
+  <ion-button (click)="addGif()">
     +
 <!--    <ion-icon name="add-circle-outline"></ion-icon>-->
   </ion-button>

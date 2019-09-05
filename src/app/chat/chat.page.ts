@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat.page.scss'],
 })
 export class ChatPage implements OnInit {
-
+  messages: [];
   constructor() { }
 
   ngOnInit() {
   }
-
+  addGif() {
+    console.log('gif added');
+  }
 }
