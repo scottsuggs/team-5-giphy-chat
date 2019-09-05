@@ -12,6 +12,9 @@ export const environment = {
     storageBucket: 'team-5-giphy-chat.appspot.com',
     messagingSenderId: '979673138214',
     appId: '1:979673138214:web:33c40671c9403346'
+  },
+  giphy: {
+    apiKey: 'VlvVPXjNhFX2o8hyr5r9CRmESCrKas6w'
   }
 };
 

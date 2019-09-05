@@ -13,9 +13,7 @@ export const routes: Routes = [
     loadChildren: './welcome/welcome.module#WelcomePageModule'
   },
   { path: 'chats', loadChildren: './chats/chats.module#ChatsPageModule' },
-  { path: 'chat', loadChildren: './chat/chat.module#ChatPageModule' },  { path: 'user', loadChildren: './user/user.module#UserPageModule' },
-  { path: 'users', loadChildren: './user/users/users.module#UsersPageModule' }
-
+  { path: 'chat', loadChildren: './chat/chat.module#ChatPageModule' }
 ];
 
 @NgModule({
