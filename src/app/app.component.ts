@@ -1,10 +1,10 @@
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { routes } from './app-routing.module';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -53,12 +53,8 @@ export class AppComponent {
   getIcon(path: string): string {
     let icon;
     for (let prop in this.menuIcons) {
-      console.log('prop', prop);
-      console.log('str', path);
-
       if (path == prop) {
         icon = this.menuIcons[prop];
-        console.log('match found: ', icon);
       }
     }
     return icon;
