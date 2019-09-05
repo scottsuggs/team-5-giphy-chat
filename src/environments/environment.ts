@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebase: {
-    //TODO: fill in api info
+    // TODO: fill in api info
     apiKey: '<your-key>',
     authDomain: '<your-project-authdomain>',
     databaseURL: '<your-database-URL>',
