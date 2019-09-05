@@ -13,6 +13,6 @@ export class ChatPage implements OnInit {
   }
   addGif() {
     console.log('gif added');
-    this.messages.push({label: 'hi', content: 'hey'});
+    this.messages.push({label: 'name', content: 'hey'});
   }
 }
