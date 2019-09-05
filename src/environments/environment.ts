@@ -12,6 +12,9 @@ export const environment = {
     projectId: '<your-project-id>',
     storageBucket: '<your-storage-bucket>',
     messagingSenderId: '<your-messaging-sender-id>'
+  },
+  giphy: {
+    apiKey: 'VlvVPXjNhFX2o8hyr5r9CRmESCrKas6w'
   }
 };
 
