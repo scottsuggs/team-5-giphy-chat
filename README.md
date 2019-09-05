@@ -1,3 +1,69 @@
+
+Tasks
+1. Sit together.
+2. Choose your scrum master (this person would be the designated project leader
+responsible to help manage the project and the project’s GitHub repository).
+3. Pick a project idea from the provided list of projects
+4. Pick the features for your first sprint.
+What can be completed and shipped in 3-4 days?
+5. Decide your UI library: Bootstrap, Material, Ionic.
+6. The scrummaster creates the github repo, grants read/write access to team members
+and instructors.
+7. Find a good starter/seed project to start from, and push it to github.
+You may want to create a branch for each person to work in, and the scrummaster would
+merge it into the master branch when features get completed.
+
+Notes
+1. K.I.S.S. principle!!
+Do fewer features, and do them well! Stay focused on the simple tasks.
+2. Assume ONE user type
+Just build the app for basic users--do not build admin features (like store admin).
+3. The product should be shippable at the end of each sprint (each sprint is 4 days long).
+4. If you get stuck on something, please ask an instructor or any students for help.
+Don't take too much time from students outside your team. Be patient with each other!
+
+Important Dates
+Product Kickoff: Tue 9/3/2019
+Sprint 1 Complete: Fri 9/6/2019
+Sprint 2 Complete: Thu 9/12/2019
+Product Complete: Thu 9/12/2019
+Prepare for Presentation: Fri 9/13/2019 - first half
+Product Presentations: Fri 9/13/2019 - second half
+
+Rubric
+Required (2 points each)
+1. Work on a team of 3 or 4 to build a production-ready web app or mobile app
+2. App must support user authentication , by a service accepted through Firebase
+(Google is recommended)
+3. App must store user data and app data securely on Firebase.
+4. App consists of all 4 pages mentioned in the API outline.
+5. Use Angular app structure , including routes, components, services, interfaces,
+etc.
+6. App should have zero critical bugs and up to three small bugs (a critical bug is
+defined as one that blocks a user from using or completing a major feature in
+your app and for which there is no workaround).
+7. Commit and push your work to github daily (give teachers read access.
+Alberto’s github account: albertogarza, Mario’s github account: marioagarcia)
+8. Publish web app on a public website (firebase, github.io, ionic.io, anywhere)
+9. Submit written user feedback from at least 5 people from outside of class who
+try using your app
+10. Present your app and code to the class on the last day of Angular (~20 minutes)
+11. Participate , and rate your team members participation (0-8). This is 25% of your
+grade for this project.
+
+FAQ
+How should I rate my teammates’ participation?
+Here is a good rule of thumb: You would give a teammate 8 points if you feel they did
+their best, communicated timely when they were going to be absent, and collaborated on
+the project by coding. You would give only 4 points to a teammate if you feel they did ok,
+did not communicate with the team on a timely manner about tardies and absences, and
+contributed to the project’s code in a limited fashion (only CSS or very few lines of code).
+You would give 0 points to a teammate if they barely contributed to the project or nothing
+at all, and showed complete disregard about communicating to the team about tardies
+and absences. You can also give points in between as you see fit.
+
+
+
 Giphy API
 General Requirements:
 1. Must support firebase Google Auth.
