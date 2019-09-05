@@ -3,6 +3,8 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { routes } from './app-routing.module';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,7 @@ import { routes } from './app-routing.module';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  items: Observable<any[]>;
   public appPages = [];
   private menuRoutes = ['home', 'chats', 'chat'];
   private menuIcons = {
@@ -23,8 +26,10 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    db: AngularFirestore
   ) {
+    this.items = db.collection('items').valueChanges();
     this.initializeApp();
   }
   getAppPages() {

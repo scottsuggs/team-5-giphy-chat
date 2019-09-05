@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    // TODO: fill in api info
-    apiKey: '<your-key>',
-    authDomain: '<your-project-authdomain>',
-    databaseURL: '<your-database-URL>',
-    projectId: '<your-project-id>',
-    storageBucket: '<your-storage-bucket>',
-    messagingSenderId: '<your-messaging-sender-id>'
+    apiKey: 'AIzaSyC4VefMM2FhymyN84jN_wo5JH2uL46v5yc',
+    authDomain: 'team-5-giphy-chat.firebaseapp.com',
+    databaseURL: 'https://team-5-giphy-chat.firebaseio.com',
+    projectId: 'team-5-giphy-chat',
+    storageBucket: 'team-5-giphy-chat.appspot.com',
+    messagingSenderId: '979673138214',
+    appId: '1:979673138214:web:33c40671c9403346'
   },
   giphy: {
     apiKey: 'VlvVPXjNhFX2o8hyr5r9CRmESCrKas6w'
