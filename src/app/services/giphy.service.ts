@@ -13,9 +13,16 @@ export class GiphyService {
 
   constructor() {}
 
-  search(query: string, limit?: number, offset?: number) {
+  search(query: string, limit: number = 25, offset: number = 0) {
     ajax(
-      `${this.gifsUrl}/search?api_key=${this.apiKey}&q=${query}&limit=${limit}&offset=${offset}`
-    ).subscribe();
+      `${this.gifsUrl}search?api_key=${this.apiKey}&q=${query}&limit=${limit}&offset=${offset}`
+    ).subscribe(
+      res => {
+        console.log(res.response.data);
+      },
+      err => {
+        console.log(err);
+      }
+    );
   }
 }
