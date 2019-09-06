@@ -16,8 +16,13 @@ export class GiphyService {
 
   constructor(private http: HttpClient) {}
 
-  //usage
-  //giphy.search('YOUR-QUERY').subscribe(giphyResponse)
+  /*
+  usage
+  giphy.search('YOUR-QUERY').subscribe(giphyResponse)  
+
+  HTML
+  *ngFor= "let gif of (gifs | async)?.data"
+  */
   search(
     query: string,
     limit: number = 25,
