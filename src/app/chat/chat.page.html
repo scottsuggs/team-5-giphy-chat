@@ -23,10 +23,13 @@
 <!--    <ion-label>Me</ion-label>-->
 <!--    <ion-card-content>hey</ion-card-content>-->
 <!--  </ion-card>-->
+  <div>
+    <ion-searchbar (click)="searchSubmitted()"></ion-searchbar>
+    <ion-button slot="start" (click)="addGif()">
+      +
+    </ion-button>
+  </div>
 
-  <ion-button (click)="addGif()">
-    +
-  </ion-button>
 
 </ion-content>
 

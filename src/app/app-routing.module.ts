@@ -12,16 +12,11 @@ export const routes: Routes = [
     path: 'welcome',
     loadChildren: './welcome/welcome.module#WelcomePageModule'
   },
-  {
-    path: 'chats',
-    loadChildren: './chats/chats.module#ChatsPageModule'
-  },
+  { path: 'chats', loadChildren: './chats/chats.module#ChatsPageModule' },
   { path: 'chat', loadChildren: './chat/chat.module#ChatPageModule' },
   { path: 'user', loadChildren: './user/user.module#UserPageModule' },
-  {
-    path: 'users',
-    loadChildren: './user/users/users.module#UsersPageModule'
-  }
+  { path: 'users', loadChildren: './user/users/users.module#UsersPageModule' }
+
 ];
 
 @NgModule({
