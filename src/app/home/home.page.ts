@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+
 
 @Component({
   selector: 'app-home',
@@ -8,9 +8,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class HomePage {
 
-  constructor(
-      private router: ActivatedRoute
-  ) {}
+  constructor(  ) {}
 
   signInButtonClicked() {
     console.log('signed in');
