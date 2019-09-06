@@ -5,6 +5,7 @@ import { Giphy } from '../interfaces/giphy';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { RandomGiphy } from '../interfaces/random-giphy';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -32,6 +33,13 @@ export class GiphyService {
       .get<Giphy>(
         `${this.gifsUrl}search?api_key=${this.apiKey}&q=${query}&limit=${limit}&offset=${offset}`
       )
-      .pipe(tap(data => console.log(data)));
+      .pipe(tap(data => console.log(data, 'giphy search results')));
+  }
+  random(tag?: string): Observable<RandomGiphy> {
+    return this.http
+      .get<RandomGiphy>(
+        `${this.gifsUrl}random?api_key=${this.apiKey}&tag=${tag}`
+      )
+      .pipe(tap(data => console.log(data, 'data random results')));
   }
 }

@@ -5,6 +5,7 @@ import { ChatListService } from '../services/chat-list.service';
 import { Giphy } from '../interfaces/giphy';
 import { GiphyService } from '../services/giphy.service';
 import { Observable } from 'rxjs';
+import { RandomGiphy } from '../interfaces/random-giphy';
 import { of } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -15,16 +16,16 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class ChatsPage implements OnInit {
   chats: Observable<Chat[]> = this.chatsService.getChats();
-  gifs: Observable<Giphy>;
+  gif: Observable<RandomGiphy>;
   constructor(
     private chatsService: ChatListService,
     private giphy: GiphyService
   ) {}
 
   ngOnInit() {
-    this.gifs = this.giphy.search('cats');
+    this.gif = this.giphy.random();
     console.log(this.chats);
-    console.log(this.gifs);
+    console.log(this.gif);
   }
 
   addChat() {
