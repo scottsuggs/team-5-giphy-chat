@@ -11,6 +11,11 @@ export class UserPage implements OnInit {
 
   ngOnInit() {
   }
+  processForm() {
+    console.log('form submitted');
+  }
+  handleNameValue() {
 
+  }
 
 }
