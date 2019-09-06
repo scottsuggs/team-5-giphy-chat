@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Ionic Blank
+      Log In
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -20,4 +20,10 @@
       will be your guide.
     </p>
   </div>
+  <ion-button
+          (click)="signInButtonClicked()"
+          [routerLink]="['/chats']"
+  >
+    sign in
+  </ion-button>
 </ion-content>
