@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GiphyService} from "../services/giphy.service";
 
 @Component({
   selector: 'app-chat',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatPage implements OnInit {
   messages = [];
-  constructor() { }
+  constructor(
+      private giphyService: GiphyService,
+  ) { }
 
   ngOnInit() {
   }
