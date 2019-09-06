@@ -16,16 +16,16 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class ChatsPage implements OnInit {
   chats: Observable<Chat[]> = this.chatsService.getChats();
-  gif: Observable<RandomGiphy>;
+  gifs: Observable<Giphy>;
   constructor(
     private chatsService: ChatListService,
     private giphy: GiphyService
   ) {}
 
   ngOnInit() {
-    this.gif = this.giphy.random();
+    this.gifs = this.giphy.trending();
     console.log(this.chats);
-    console.log(this.gif);
+    console.log(this.gifs);
   }
 
   addChat() {

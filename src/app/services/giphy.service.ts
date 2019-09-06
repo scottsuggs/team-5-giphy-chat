@@ -35,11 +35,20 @@ export class GiphyService {
       )
       .pipe(tap(data => console.log(data, 'giphy search results')));
   }
+  //returns a single random gif
   random(tag?: string): Observable<RandomGiphy> {
     return this.http
       .get<RandomGiphy>(
         `${this.gifsUrl}random?api_key=${this.apiKey}&tag=${tag}`
       )
-      .pipe(tap(data => console.log(data, 'data random results')));
+      .pipe(tap(data => console.log(data, 'giphy random results')));
+  }
+
+  trending(limit: number = 25, offset: number = 0): Observable<Giphy> {
+    return this.http
+      .get<Giphy>(
+        `${this.gifsUrl}trending?api_key=${this.apiKey}&offset=${offset}&limit=${limit}`
+      )
+      .pipe(tap(data => console.log(data, 'giphy trending results')));
   }
 }
