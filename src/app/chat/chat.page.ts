@@ -18,4 +18,7 @@ export class ChatPage implements OnInit {
     console.log('gif added');
     this.messages.push({label: 'name', content: 'hey'});
   }
+  searchSubmitted() {
+    console.log('searching...');
+  }
 }
