@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Chat } from '../interfaces/chat';
 import { ChatListService } from '../services/chat-list.service';
-import { Giphy } from '../interfaces/giphy';
-import { GiphyService } from '../services/giphy.service';
 import { Observable } from 'rxjs';
-import { RandomGiphy } from '../interfaces/random-giphy';
-import { of } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 
 @Component({
@@ -16,16 +12,10 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class ChatsPage implements OnInit {
   chats: Observable<Chat[]> = this.chatsService.getChats();
-  gifs: Observable<Giphy>;
-  constructor(
-    private chatsService: ChatListService,
-    private giphy: GiphyService
-  ) {}
+  constructor(private chatsService: ChatListService) {}
 
   ngOnInit() {
-    this.gifs = this.giphy.trending();
     console.log(this.chats);
-    console.log(this.gifs);
   }
 
   addChat() {
