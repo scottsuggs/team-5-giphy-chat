@@ -8,6 +8,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { RouteReuseStrategy } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -25,7 +26,8 @@ import { environment } from '../environments/environment';
     AngularFirestoreModule,
     AngularFireAuthModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,

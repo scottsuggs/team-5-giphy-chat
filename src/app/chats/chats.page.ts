@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { Chat } from '../interfaces/chat';
 import { ChatListService } from '../services/chat-list.service';
-import { GiphyService } from '../services/giphy.service';
 import { Observable } from 'rxjs';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -13,14 +12,10 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class ChatsPage implements OnInit {
   chats: Observable<Chat[]> = this.chatsService.getChats();
-  constructor(
-    private chatsService: ChatListService,
-    private giphy: GiphyService
-  ) {}
+  constructor(private chatsService: ChatListService) {}
 
   ngOnInit() {
-    // this.chats = this.chatsService.getChats().subscribe()
-    this.giphy.search('cats');
+    console.log(this.chats);
   }
 
   addChat() {
