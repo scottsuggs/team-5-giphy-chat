@@ -15,11 +15,10 @@
       Add Chat
     </ion-button>
     <ion-list-header>
-      <ion-text> </ion-text>
+      <ion-text>Contacts</ion-text>
     </ion-list-header>
     <div *ngIf="chats">
       <ion-item
-        [routerLink]="['/chat']"
         (click)="handleChatClick(chat.id)"
         *ngFor="let chat of chats | async; index as i"
       >
@@ -28,7 +27,7 @@
         </ion-avatar>
         <ion-label>
           <h1>
-            {{ chat.members[0] }}
+            {{ chat.members[0].name }}
           </h1>
           <h2>
             Chat Sample Here

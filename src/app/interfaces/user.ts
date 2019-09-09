@@ -1,4 +1,7 @@
+import { Giphy } from './giphy';
+
 export interface User {
     name: string;
-    id: string;
+    email: string;
+    gifs?: Giphy[];
 }
