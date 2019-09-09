@@ -1,4 +1,6 @@
+import { User } from './user';
+
 export interface Chat {
-  members: string[];
+  members: User[];
   id: string; //uuid v4
 }

@@ -14,7 +14,7 @@ export class ChatListService {
     return of(this.chats);
   }
 
-  private setChats(newArray: Chat[]) {
+  setChats(newArray: Chat[]) {
     this.chats = newArray;
   }
   addChat(newChat: Chat) {
