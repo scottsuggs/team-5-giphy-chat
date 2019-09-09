@@ -14,7 +14,7 @@
     <ion-card *ngFor="let message of messages">
       <ion-icon name="contact" ></ion-icon>
       <ion-label>{{message.label}}</ion-label>
-      <ion-card-content>{{message.content}}</ion-card-content>
+      <img src="{{message.content.data.image_url}}" />
     </ion-card>
   </div>
 
@@ -28,7 +28,12 @@
   </div>
   <ion-card *ngIf="buttonClicked == true">
     <ion-searchbar (click)="searchSubmitted()"></ion-searchbar>
+    <ion-grid *ngFor="let item of trending">
+      {{item}}
+<!--      {{item.data.image_url}}-->
+    </ion-grid>
     <ion-button (click)="sendGif()">send gif</ion-button>
+    <ion-button (click)="closeButton()">x</ion-button>
   </ion-card>
 
 
