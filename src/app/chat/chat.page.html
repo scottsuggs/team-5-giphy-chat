@@ -28,10 +28,10 @@
   </div>
   <ion-card *ngIf="buttonClicked == true">
     <ion-searchbar (click)="searchSubmitted()"></ion-searchbar>
-    <ion-grid *ngFor="let item of trending">
-      {{item.image_url}}
+    <ion-card-content *ngFor="let item of trending">
+      <img src="{{item.url}}"/>
 <!--      {{item.data.image_url}}-->
-    </ion-grid>
+    </ion-card-content>
     <ion-button (click)="sendGif()">send gif</ion-button>
     <ion-button (click)="closeButton()">x</ion-button>
   </ion-card>
