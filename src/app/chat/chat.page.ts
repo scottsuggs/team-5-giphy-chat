@@ -8,15 +8,24 @@ import {GiphyService} from "../services/giphy.service";
 })
 export class ChatPage implements OnInit {
   messages = [];
+  buttonClicked = false;
   constructor(
       private giphyService: GiphyService,
   ) { }
 
   ngOnInit() {
   }
-  addGif() {
-    console.log('gif added');
+  addButtonClicked() {
+    console.log('add button clicked');
+    this.buttonClicked = true;
+  }
+  sendGif() {
+    console.log('gif sent');
     this.messages.push({label: 'name', content: 'hey'});
+    this.buttonClicked = false;
+  }
+  sendRandomGif() {
+    this.messages.push({label: 'name', content: 'random gif'});
   }
   searchSubmitted() {
     console.log('searching...');

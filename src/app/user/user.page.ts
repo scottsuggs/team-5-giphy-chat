@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from '../interfaces/user';
 
 @Component({
   selector: 'app-user',
@@ -6,16 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.page.scss'],
 })
 export class UserPage implements OnInit {
-  users = [];
+  users: User[];
   constructor() { }
 
   ngOnInit() {
   }
-  processForm() {
+  processForm(event) {
     console.log('form submitted');
   }
-  handleNameValue() {
-
+  handleNameValue(event) {
+    const name = event.target.value;
+    console.log(name);
   }
 
 }
