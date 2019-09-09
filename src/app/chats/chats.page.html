@@ -19,7 +19,7 @@
     </ion-list-header>
     <div *ngIf="chats">
       <ion-item
-        [routerLink]="['/chat']"
+        
         (click)="handleChatClick(chat.id)"
         *ngFor="let chat of chats | async; index as i"
       >

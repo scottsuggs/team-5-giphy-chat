@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-back-button color="danger"></ion-back-button>
     </ion-buttons>
     <ion-title>
       Chat
@@ -12,24 +12,21 @@
 <ion-content>
   <div *ngIf="messages">
     <ion-card *ngFor="let message of messages">
-      <ion-icon name="contact" ></ion-icon>
-      <ion-label>{{message.label}}</ion-label>
-      <ion-card-content>{{message.content}}</ion-card-content>
+      <ion-icon name="contact"></ion-icon>
+      <ion-label>{{ message.label }}</ion-label>
+      <ion-card-content>{{ message.content }}</ion-card-content>
     </ion-card>
   </div>
 
-<!--  <ion-card>-->
-<!--    <ion-icon name="contact" ></ion-icon>-->
-<!--    <ion-label>Me</ion-label>-->
-<!--    <ion-card-content>hey</ion-card-content>-->
-<!--  </ion-card>-->
+  <!--  <ion-card>-->
+  <!--    <ion-icon name="contact" ></ion-icon>-->
+  <!--    <ion-label>Me</ion-label>-->
+  <!--    <ion-card-content>hey</ion-card-content>-->
+  <!--  </ion-card>-->
   <div>
     <ion-searchbar (click)="searchSubmitted()"></ion-searchbar>
     <ion-button slot="start" (click)="addGif()">
       +
     </ion-button>
   </div>
-
-
 </ion-content>
-
