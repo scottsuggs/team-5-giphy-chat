@@ -12,21 +12,29 @@
 <ion-content>
   <div *ngIf="messages">
     <ion-card *ngFor="let message of messages">
-      <ion-icon name="contact"></ion-icon>
-      <ion-label>{{ message.label }}</ion-label>
-      <ion-card-content>{{ message.content }}</ion-card-content>
+      <ion-icon name="contact" ></ion-icon>
+      <ion-label>{{message.label}}</ion-label>
+      <img src="{{message.content.data.image_url}}" />
     </ion-card>
   </div>
 
-  <!--  <ion-card>-->
-  <!--    <ion-icon name="contact" ></ion-icon>-->
-  <!--    <ion-label>Me</ion-label>-->
-  <!--    <ion-card-content>hey</ion-card-content>-->
-  <!--  </ion-card>-->
-  <div>
-    <ion-searchbar (click)="searchSubmitted()"></ion-searchbar>
-    <ion-button slot="start" (click)="addGif()">
-      +
+  <div *ngIf="buttonClicked == false">
+    <ion-button (click)="addButtonClicked()">
+      choose a gif
+    </ion-button>
+    <ion-button (click)="sendRandomGif()">
+      send random gif
     </ion-button>
   </div>
+  <ion-card *ngIf="buttonClicked == true">
+    <ion-searchbar (click)="searchSubmitted()"></ion-searchbar>
+    <ion-card-content *ngFor="let item of trending">
+      <img src="{{item.url}}"/>
+<!--      {{item.data.image_url}}-->
+    </ion-card-content>
+    <ion-button (click)="sendGif()">send gif</ion-button>
+    <ion-button (click)="closeButton()">x</ion-button>
+  </ion-card>
+
+
 </ion-content>
