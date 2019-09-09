@@ -29,7 +29,7 @@
   <ion-card *ngIf="buttonClicked == true">
     <ion-searchbar (click)="searchSubmitted()"></ion-searchbar>
     <ion-grid *ngFor="let item of trending">
-      {{item}}
+      {{item.image_url}}
 <!--      {{item.data.image_url}}-->
     </ion-grid>
     <ion-button (click)="sendGif()">send gif</ion-button>

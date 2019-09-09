@@ -9,8 +9,8 @@ import {Giphy} from "../interfaces/giphy";
 })
 export class ChatPage implements OnInit {
   messages = [];
-  trending = ['hi', 'hey', 'hello', 'hola'];
-  // trending = [];
+  // trending = ['hi', 'hey', 'hello', 'hola'];
+  trending: any[] = [];
   buttonClicked = false;
   constructor(
       private giphyService: GiphyService,
@@ -20,10 +20,10 @@ export class ChatPage implements OnInit {
   }
   addButtonClicked() {
     console.log('add button clicked');
-    // this.giphyService.trending().subscribe( gif => (
-    //     this.trending.push(gif)
-    // ));
-    // console.log(this.trending);
+    this.giphyService.trending().subscribe( gif => {
+      this.trending = gif.data;
+      console.log(this.trending);
+    });
     this.buttonClicked = true;
   }
   sendGif() {
