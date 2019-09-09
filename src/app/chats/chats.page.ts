@@ -15,6 +15,7 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class ChatsPage implements OnInit {
   chats: Observable<Chat[]> = this.chatsService.getChats();
+  currentMembers: User[];
   constructor(
     private chatsService: ChatListService,
     private navCtrl: NavController,
@@ -23,11 +24,12 @@ export class ChatsPage implements OnInit {
 
   ngOnInit() {
     console.log(this.chats);
+    this.firebase.getUsers().subscribe(data => (this.currentMembers = data));
   }
 
   addChat() {
     this.chatsService.addChat({
-      members: ['Kaleb'],
+      members: this.currentMembers,
       id: `${uuidv4()}`
     });
     console.log('chat added');

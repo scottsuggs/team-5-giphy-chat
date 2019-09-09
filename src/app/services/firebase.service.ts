@@ -25,7 +25,7 @@ export class FirebaseService {
   addUserDocument(user: User) {
     this.usersCollection.add(user);
   }
-  getUserDocument(id: string): Observable<User> {
+  getUserDocument(): Observable<User> {
     return (this.user = this.userDocument.valueChanges());
   }
   setUserDocument(id: string) {
