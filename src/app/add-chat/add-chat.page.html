@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>AddChat</ion-title>
+    <ion-buttons>
+      <ion-back-button defaultHref="/chats"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create Chat</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-item>
+    <ion-label postition="floating">Members</ion-label>
+    <ion-input placeholder="search here..."></ion-input>
+  </ion-item>
 </ion-content>

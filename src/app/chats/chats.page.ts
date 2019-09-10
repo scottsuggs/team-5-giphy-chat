@@ -28,7 +28,7 @@ export class ChatsPage implements OnInit {
   }
 
   addChat() {
-    this.navCtrl.navigateForward;
+    this.navCtrl.navigateForward('add-chat');
     // this.chatsService.addChat({
     //   members: this.currentMembers,
     //   id: `${uuidv4()}`
