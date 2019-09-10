@@ -28,7 +28,7 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    db: AngularFirestore
+    public db: AngularFirestore
   ) {
     this.items = db.collection('items').valueChanges();
     this.initializeApp();
