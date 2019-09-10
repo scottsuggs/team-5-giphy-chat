@@ -26,18 +26,22 @@ export class ChatPage implements OnInit {
     });
     this.buttonClicked = true;
   }
-  sendGif() {
-    console.log('gif sent');
-    this.messages.push({label: 'name', content: 'hey'});
+  sendGif(item) {
+    console.log('gif sent', item);
+    // this.giphyService.trending().subscribe(gif => (
+    //     this.messages.push({label: 'name', content: gif})
+    // ));
+    this.messages.push({label: 'name', content: item});
     this.closeButton();
   }
   closeButton() {
     this.buttonClicked = false;
   }
   sendRandomGif() {
-    this.giphyService.random().subscribe(gif => (
-        this.messages.push({label: 'name', content: gif})
-      ));
+    this.giphyService.random().subscribe(gif => {
+      this.messages.push({label: 'name', content: gif.data});
+      console.log(gif.data);
+    });
   }
   searchSubmitted() {
     console.log('searching...');
