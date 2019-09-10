@@ -33,12 +33,17 @@ export class ChatsPage implements OnInit {
       id: `${uuidv4()}`
     });
     console.log('chat added');
+    let newUser: User = { name: 'kaleb', email: 'twitcherc@gmail.com' };
+    console.log(newUser);
+    this.firebase.addUserDocument(newUser);
+  }
+
+  deleteUser(id: string) {
+    console.log('curerentMembers', this.currentMembers);
+    this.firebase.removeUserDocument(id);
   }
   handleChatClick(id: string) {
     this.navCtrl.navigateForward('chat');
     console.log('opening chat: ', id);
-    let newUser: User = { name: 'kaleb', email: 'twitcherc@gmail.com' };
-    console.log(newUser);
-    this.firebase.addUserDocument(newUser);
   }
 }

@@ -19,7 +19,7 @@ export class FirebaseService {
   user: Observable<User>;
   constructor(private db: AngularFirestore) {
     this.usersCollection = db.collection<User>('users');
-    this.users = this.usersCollection.valueChanges();
+    this.users = this.usersCollection.valueChanges({ idField: 'id' });
   }
 
   addUserDocument(user: User) {

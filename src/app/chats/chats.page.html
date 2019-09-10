@@ -30,10 +30,20 @@
             {{ chat.members[0].name }}
           </h1>
           <h2>
-            Chat Sample Here
+            {{ chat.members[0].id }}
           </h2></ion-label
         >
       </ion-item>
     </div>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      <ion-text>Users</ion-text>
+    </ion-list-header>
+    <ion-item *ngFor="let member of currentMembers; index as i">
+      <ion-label (click)="deleteUser(member.id)">
+        {{ member.name }}
+      </ion-label>
+    </ion-item>
   </ion-list>
 </ion-content>
