@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import * as firebase from "firebase";
 
 
 @Component({
@@ -6,11 +7,30 @@ import { Component } from '@angular/core';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
+
+  private ui: any;
 
   constructor(  ) {}
 
   signInButtonClicked() {
     console.log('signed in');
+   this.ui.start('#firebaseui-auth-container', {
+      signInOptions: [
+        {
+          provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+          requireDisplayName: false
+        },
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+        firebase.auth.GithubAuthProvider.PROVIDER_ID
+      ],
+      // Other config options...
+    });
+  }
+
+  ngOnInit() {
+    // const ui = new firebaseui.auth.AuthUI(firebase.auth());
   }
 }
