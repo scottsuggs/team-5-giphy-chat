@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button color="danger"></ion-back-button>
+      <ion-back-button defaultHref="/chats"></ion-back-button>
     </ion-buttons>
     <ion-title>
       Chat
@@ -12,9 +12,9 @@
 <ion-content>
   <div *ngIf="messages">
     <ion-card *ngFor="let message of messages">
-      <ion-icon name="contact" ></ion-icon>
-      <ion-label>{{message.label}}</ion-label>
-      <img src="{{message.content.data.image_url}}" />
+      <ion-icon name="contact"></ion-icon>
+      <ion-label>{{ message.label }}</ion-label>
+      <img src="{{ message.content.data.image_url }}" />
     </ion-card>
   </div>
 
@@ -29,12 +29,10 @@
   <ion-card *ngIf="buttonClicked == true">
     <ion-searchbar (click)="searchSubmitted()"></ion-searchbar>
     <ion-card-content *ngFor="let item of trending">
-      <img src="{{item.url}}"/>
-<!--      {{item.data.image_url}}-->
+      <img src="{{ item.url }}" />
+      <!--      {{item.data.image_url}}-->
     </ion-card-content>
     <ion-button (click)="sendGif()">send gif</ion-button>
     <ion-button (click)="closeButton()">x</ion-button>
   </ion-card>
-
-
 </ion-content>
