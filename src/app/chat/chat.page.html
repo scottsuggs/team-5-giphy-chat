@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button color="danger"></ion-back-button>
+      <ion-back-button defaultHref="/chats"></ion-back-button>
     </ion-buttons>
     <ion-title>
       Chat
@@ -27,6 +27,7 @@
     </ion-button>
   </div>
   <ion-card *ngIf="buttonClicked == true">
+
     <ion-button color="secondary" (click)="closeButton()">x</ion-button>
     <ion-searchbar placeholder="search gifs" (ionInput)="searchSubmitted($event)"></ion-searchbar>
 
@@ -46,7 +47,6 @@
       </ion-row>
     </ion-grid>
 
+
   </ion-card>
-
-
 </ion-content>
