@@ -9,8 +9,8 @@ import {Giphy} from "../interfaces/giphy";
 })
 export class ChatPage implements OnInit {
   messages = [];
-  // trending = ['hi', 'hey', 'hello', 'hola'];
   trending: any[] = [];
+  searched;
   buttonClicked = false;
   constructor(
       private giphyService: GiphyService,
@@ -22,20 +22,19 @@ export class ChatPage implements OnInit {
     console.log('add button clicked');
     this.giphyService.trending().subscribe( gif => {
       this.trending = gif.data;
-      console.log(this.trending);
+      // console.log(this.trending);
     });
     this.buttonClicked = true;
+    console.log('searched:', this.searched);
   }
   sendGif(item) {
     console.log('gif sent', item);
-    // this.giphyService.trending().subscribe(gif => (
-    //     this.messages.push({label: 'name', content: gif})
-    // ));
     this.messages.push({label: 'name', content: item});
     this.closeButton();
   }
   closeButton() {
     this.buttonClicked = false;
+    this.searched = undefined;
   }
   sendRandomGif() {
     this.giphyService.random().subscribe(gif => {
@@ -46,5 +45,9 @@ export class ChatPage implements OnInit {
   searchSubmitted(event) {
     const searchTerm = event.target.value;
     console.log(searchTerm);
+    this.giphyService.search(searchTerm).subscribe(gif => {
+      this.searched = gif.data;
+      console.log(this.searched);
+    });
   }
 }

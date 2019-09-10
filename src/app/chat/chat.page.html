@@ -27,18 +27,25 @@
     </ion-button>
   </div>
   <ion-card *ngIf="buttonClicked == true">
+    <ion-button color="secondary" (click)="closeButton()">x</ion-button>
     <ion-searchbar placeholder="search gifs" (ionInput)="searchSubmitted($event)"></ion-searchbar>
-    <ion-grid >
+
+    <ion-grid *ngIf="!searched">
       <ion-row>
         <ion-col *ngFor="let item of trending" size="4">
           <img (click)="sendGif(item)" src="https://media2.giphy.com/media/{{item.id}}/giphy.gif"/>
         </ion-col>
       </ion-row>
-
-
     </ion-grid>
-    <ion-button (click)="sendGif()">send gif</ion-button>
-    <ion-button (click)="closeButton()">x</ion-button>
+
+    <ion-grid *ngIf="searched">
+      <ion-row>
+        <ion-col *ngFor="let item of searched" size="4">
+          <img (click)="sendGif(item)" src="https://media2.giphy.com/media/{{item.id}}/giphy.gif"/>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
   </ion-card>
 
 
