@@ -42,7 +42,7 @@
     </ion-list-header>
     <ion-item *ngFor="let member of currentMembers; index as i">
       <ion-label (click)="deleteUser(member.id)">
-        {{ member.name }}
+        {{ member.name }}, {{ member.id }}
       </ion-label>
     </ion-item>
   </ion-list>
