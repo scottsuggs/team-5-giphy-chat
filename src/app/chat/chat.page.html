@@ -27,7 +27,7 @@
     </ion-button>
   </div>
   <ion-card *ngIf="buttonClicked == true">
-    <ion-searchbar (click)="searchSubmitted()"></ion-searchbar>
+    <ion-searchbar placeholder="search gifs" (ionInput)="searchSubmitted($event)"></ion-searchbar>
     <ion-grid >
       <ion-row>
         <ion-col *ngFor="let item of trending" size="4">

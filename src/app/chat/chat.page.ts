@@ -43,7 +43,8 @@ export class ChatPage implements OnInit {
       console.log(gif.data);
     });
   }
-  searchSubmitted() {
-    console.log('searching...');
+  searchSubmitted(event) {
+    const searchTerm = event.target.value;
+    console.log(searchTerm);
   }
 }
