@@ -7,10 +7,10 @@ import { User } from '../interfaces/user';
 })
 export class SortUsersPipe implements PipeTransform {
   transform(users: User[], query: string): User[] {
-    console.log('pipe users: ', users);
-
-    return users.filter(user =>
-      user.name.toLowerCase().includes(query.toLowerCase())
+    return users.filter(
+      user =>
+        user.name.toLowerCase().includes(query.toLowerCase()) ||
+        user.email.toLowerCase().includes(query.toLowerCase())
     );
   }
 }

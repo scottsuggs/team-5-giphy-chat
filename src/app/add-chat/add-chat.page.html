@@ -15,13 +15,17 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="query && users">
+  <ion-button (click)="log()">log</ion-button>
+  <ion-list *ngIf="query">
     <ion-list-header>Users</ion-list-header>
     <div *ngFor="let user of users | sortUsers: query">
-      <ion-item>
-        <ion-text>
+      <ion-item (click)="addUser(user)">
+        <ion-label>
           {{ user.name | titlecase }}
-        </ion-text>
+        </ion-label>
+        <div>
+          <ion-text>{{ user.email }}</ion-text>
+        </div>
       </ion-item>
     </div>
   </ion-list>

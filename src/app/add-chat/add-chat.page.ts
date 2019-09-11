@@ -10,13 +10,23 @@ import { User } from '../interfaces/user';
   styleUrls: ['./add-chat.page.scss']
 })
 export class AddChatPage implements OnInit {
-  $users: Observable<User[]> = this.firebase.getUsers();
   users: User[];
   query: string;
 
   constructor(private firebase: FirebaseService) {}
 
   ngOnInit() {
-    this.$users.subscribe(data => (this.users = data));
+    this.firebase.getUsers().subscribe(data => {
+      this.users = data;
+      console.log('init users', this.users);
+    });
+  }
+
+  log() {
+    console.log('users', this.users);
+  }
+
+  addUser(user: User) {
+    this.firebase.addUserDocument(user);
   }
 }

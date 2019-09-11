@@ -36,14 +36,4 @@
       </ion-item>
     </div>
   </ion-list>
-  <ion-list>
-    <ion-list-header>
-      <ion-text>Users</ion-text>
-    </ion-list-header>
-    <ion-item *ngFor="let member of currentMembers; index as i">
-      <ion-label (click)="deleteUser(member.id)">
-        {{ member.name }}, {{ member.id }}
-      </ion-label>
-    </ion-item>
-  </ion-list>
 </ion-content>
