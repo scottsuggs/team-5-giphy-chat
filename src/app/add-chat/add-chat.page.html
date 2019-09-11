@@ -15,8 +15,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-list *ngIf="query">
+  <ion-list *ngIf="query && users">
     <ion-list-header>Users</ion-list-header>
-    <ion-item *ngFor="let user of users"></ion-item>
+    <div *ngFor="let user of users | sortUsers: query">
+      <ion-item>
+        <ion-text>
+          {{ user.name | titlecase }}
+        </ion-text>
+      </ion-item>
+    </div>
   </ion-list>
 </ion-content>
