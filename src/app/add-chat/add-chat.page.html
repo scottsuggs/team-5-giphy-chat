@@ -6,13 +6,17 @@
     <ion-title>Create Chat</ion-title>
   </ion-toolbar>
   <ion-toolbar>
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar
+      [(ngModel)]="query"
+      showCancelButton="focus"
+      animated
+    ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-label postition="floating">Members</ion-label>
-    <ion-input placeholder="search here..."></ion-input>
-  </ion-item>
+  <ion-list *ngIf="query">
+    <ion-list-header>Users</ion-list-header>
+    <ion-item *ngFor="let user of users"></ion-item>
+  </ion-list>
 </ion-content>
