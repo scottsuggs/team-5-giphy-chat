@@ -37,7 +37,7 @@ export class ChatsPage implements OnInit {
   handleChatClick(id: string) {
     this.navCtrl.navigateForward('chat');
     console.log('opening chat: ', id);
-    let newUser: User = { name: 'kaleb', email: 'twitcherc@gmail.com', password: '' };
+    let newUser: User = { name: 'kaleb', email: 'twitcherc@gmail.com'};
     console.log(newUser);
     this.firebase.addUserDocument(newUser);
   }
