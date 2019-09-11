@@ -14,7 +14,7 @@
     <ion-card *ngFor="let message of messages">
       <ion-icon name="contact" ></ion-icon>
       <ion-label>{{message.label}}</ion-label>
-      <ion-label align="right">{{message.timestamp}}</ion-label>
+      <ion-label float-right="right">{{message.timestamp}}</ion-label>
       <img src="https://media2.giphy.com/media/{{message.content.id}}/giphy.gif" />
     </ion-card>
   </div>
