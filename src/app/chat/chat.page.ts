@@ -12,6 +12,7 @@ export class ChatPage implements OnInit {
   trending: any[] = [];
   searched;
   buttonClicked = false;
+
   constructor(
       private giphyService: GiphyService,
   ) { }
@@ -29,7 +30,8 @@ export class ChatPage implements OnInit {
   }
   sendGif(item) {
     console.log('gif sent', item);
-    this.messages.push({label: 'name', content: item});
+    const date = this.getDate();
+    this.messages.push({label: 'name', timestamp: date, content: item});
     this.closeButton();
   }
   closeButton() {
@@ -38,7 +40,8 @@ export class ChatPage implements OnInit {
   }
   sendRandomGif() {
     this.giphyService.random().subscribe(gif => {
-      this.messages.push({label: 'name', content: gif.data});
+      const date = this.getDate();
+      this.messages.push({label: 'name', timestamp: date, content: gif.data});
       console.log(gif.data);
     });
   }
@@ -49,5 +52,12 @@ export class ChatPage implements OnInit {
       this.searched = gif.data;
       console.log(this.searched);
     });
+  }
+  getDate() {
+    const today = new Date();
+    //
+    const timestamp = today.getHours() + ':' + today.getMinutes() + ' on ' +
+        (today.getMonth() + 1 ) + '/' + today.getDate() + '/' + today.getFullYear();
+    return (timestamp);
   }
 }
