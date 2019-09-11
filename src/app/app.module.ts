@@ -14,6 +14,9 @@ import { RouteReuseStrategy } from '@angular/router';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { environment } from '../environments/environment';
+import * as firebaseui from 'firebaseui';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui'
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +30,8 @@ import { environment } from '../environments/environment';
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     StatusBar,

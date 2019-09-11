@@ -1,9 +1,6 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Welcome</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-
+  <ngx-auth-firebaseui
+          (onSuccess)="printUser($event)"
+          (onError)="printError($event)">
+  </ngx-auth-firebaseui>
 </ion-content>

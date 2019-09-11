@@ -33,6 +33,7 @@ export class AppComponent {
     this.items = db.collection('items').valueChanges();
     this.initializeApp();
   }
+
   getAppPages() {
     routes.forEach(route => {
       if (this.getMenuRoutes(route.path)) {
