@@ -28,11 +28,20 @@ export class ChatsPage implements OnInit {
   }
 
   addChat() {
-    this.chatsService.addChat({
-      members: this.currentMembers,
-      id: `${uuidv4()}`
-    });
-    console.log('chat added');
+    this.navCtrl.navigateForward('add-chat');
+    // this.chatsService.addChat({
+    //   members: this.currentMembers,
+    //   id: `${uuidv4()}`
+    // });
+    // console.log('chat added');
+    // let newUser: User = { name: 'kaleb', email: 'twitcherc@gmail.com' };
+    // console.log(newUser);
+    // this.firebase.addUserDocument(newUser);
+  }
+
+  deleteUser(id: string) {
+    console.log('curerentMembers', this.currentMembers);
+    this.firebase.removeUserDocument(id);
   }
   handleChatClick(id: string) {
     this.navCtrl.navigateForward('chat');

@@ -9,8 +9,8 @@ import {Giphy} from "../interfaces/giphy";
 })
 export class ChatPage implements OnInit {
   messages = [];
-  // trending = ['hi', 'hey', 'hello', 'hola'];
   trending: any[] = [];
+  searched;
   buttonClicked = false;
   constructor(
       private giphyService: GiphyService,
@@ -22,24 +22,32 @@ export class ChatPage implements OnInit {
     console.log('add button clicked');
     this.giphyService.trending().subscribe( gif => {
       this.trending = gif.data;
-      console.log(this.trending);
+      // console.log(this.trending);
     });
     this.buttonClicked = true;
+    console.log('searched:', this.searched);
   }
-  sendGif() {
-    console.log('gif sent');
-    this.messages.push({label: 'name', content: 'hey'});
+  sendGif(item) {
+    console.log('gif sent', item);
+    this.messages.push({label: 'name', content: item});
     this.closeButton();
   }
   closeButton() {
     this.buttonClicked = false;
+    this.searched = undefined;
   }
   sendRandomGif() {
-    this.giphyService.random().subscribe(gif => (
-        this.messages.push({label: 'name', content: gif})
-      ));
+    this.giphyService.random().subscribe(gif => {
+      this.messages.push({label: 'name', content: gif.data});
+      console.log(gif.data);
+    });
   }
-  searchSubmitted() {
-    console.log('searching...');
+  searchSubmitted(event) {
+    const searchTerm = event.target.value;
+    console.log(searchTerm);
+    this.giphyService.search(searchTerm).subscribe(gif => {
+      this.searched = gif.data;
+      console.log(this.searched);
+    });
   }
 }
