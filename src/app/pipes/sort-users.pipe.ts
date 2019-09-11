@@ -9,7 +9,7 @@ export class SortUsersPipe implements PipeTransform {
   transform(users: User[], query: string): User[] {
     return users.filter(
       user =>
-        user.name.toLowerCase().includes(query.toLowerCase()) ||
+        user.displayName.toLowerCase().includes(query.toLowerCase()) ||
         user.email.toLowerCase().includes(query.toLowerCase())
     );
   }
