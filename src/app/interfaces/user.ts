@@ -9,6 +9,6 @@ export interface User {
   gifs?: Giphy[]; //these are the favorite gifs
   id?: string; //assigned by firebase
   //TODO: Implement these properties
-  chats: Chat[];
+  // chats: Chat[];
 
 }
