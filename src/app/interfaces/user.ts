@@ -1,4 +1,5 @@
 import { Giphy } from './giphy';
+import {Chat} from './chat';
 
 
 export interface User {
@@ -8,6 +9,6 @@ export interface User {
   gifs?: Giphy[]; //these are the favorite gifs
   id?: string; //assigned by firebase
   //TODO: Implement these properties
-  //chats: Chat[]
+  chats: Chat[];
 
 }

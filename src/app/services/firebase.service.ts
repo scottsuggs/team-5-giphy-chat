@@ -55,7 +55,9 @@ export class FirebaseService {
   //====End Users====
 
   //====Chats====
-  addChatDocument(chat: Chat) {}
+  addChatDocument(chat: Chat) {
+
+  }
   getChatDocument(): Observable<Chat> {
     return (this.chat = this.chatDocument.valueChanges());
   }
