@@ -12,4 +12,13 @@ export class WelcomePage implements OnInit {
   ngOnInit() {
   }
 
+  printUser(event) {
+    console.log(event);
+  }
+
+  printError(event) {
+    console.log(event);
+  }
+
+
 }
