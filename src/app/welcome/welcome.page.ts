@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NavController} from "@ionic/angular";
 
 @Component({
   selector: 'app-welcome',
@@ -7,17 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WelcomePage implements OnInit {
 
-  constructor() { }
+  constructor(
+      private navCtrl: NavController
+  ) {}
 
   ngOnInit() {
   }
 
   printUser(event) {
-    console.log(event);
+    this.navCtrl.navigateForward('chats');
   }
 
   printError(event) {
-    console.log(event);
   }
 
 
