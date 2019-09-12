@@ -7,17 +7,15 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 import { RouteReuseStrategy } from '@angular/router';
-import { SortUsersPipe } from './pipes/sort-users.pipe';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { environment } from '../environments/environment';
-import * as firebaseui from 'firebaseui';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui'
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,7 +30,7 @@ import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui'
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     StatusBar,
