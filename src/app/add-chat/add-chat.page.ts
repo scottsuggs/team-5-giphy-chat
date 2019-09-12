@@ -65,6 +65,6 @@ export class AddChatPage implements OnInit, AfterContentInit, DoCheck {
   }
 
   addUser(user: User) {
-    this.firebase.addUserDocument(user);
+    // this.firebase.addUserDocument(user);
   }
 }
