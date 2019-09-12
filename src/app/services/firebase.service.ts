@@ -33,7 +33,10 @@ export class FirebaseService {
   }
 
   //====current user===
-  setCurrentUser(user: User) {}
+  //TODO: set current user when the user logs in
+  setCurrentUser(user: User) {
+    this.currentUser = user;
+  }
 
   getCurrentUser(): User {
     return this.currentUser;
