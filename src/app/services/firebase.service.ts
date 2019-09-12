@@ -56,7 +56,7 @@ export class FirebaseService {
 
   //====Chats====
   addChatDocument(chat: Chat) {
-
+    this.chatsCollection.add(chat);
   }
   getChatDocument(): Observable<Chat> {
     return (this.chat = this.chatDocument.valueChanges());
@@ -69,8 +69,8 @@ export class FirebaseService {
     this.chatDocument.delete();
   }
   updateChatDocument(id: string, data: Chat) {
-    this.setUserDocument(id);
-    this.userDocument.update(data);
+    this.setChatDocument(id);
+    this.chatDocument.update(data);
   }
   getChats(): Observable<Chat[]> {
     return this.chats;

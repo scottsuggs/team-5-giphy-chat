@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {GiphyService} from "../services/giphy.service";
-import {Giphy} from "../interfaces/giphy";
+import {GiphyService} from '../services/giphy.service';
+import {Giphy} from '../interfaces/giphy';
+import {FirebaseService} from '../services/firebase.service';
 
 @Component({
   selector: 'app-chat',
@@ -15,6 +16,7 @@ export class ChatPage implements OnInit {
 
   constructor(
       private giphyService: GiphyService,
+      private fb: FirebaseService,
   ) { }
 
   ngOnInit() {
