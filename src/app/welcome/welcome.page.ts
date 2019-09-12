@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from "@ionic/angular";
 
 @Component({
   selector: 'app-welcome',
@@ -6,19 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome.page.scss'],
 })
 export class WelcomePage implements OnInit {
+  private navCtrl: NavController;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  printUser(event) {
-    console.log(event);
+  printUser() {
+    this.navCtrl.navigateForward('chat');
   }
 
-  printError(event) {
-    console.log(event);
+  printError() {
   }
-
 
 }
