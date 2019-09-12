@@ -33,7 +33,10 @@ export class ChatPage implements OnInit {
   sendGif(item) {
     console.log('gif sent', item);
     const date = this.getDate();
+    // this.fb.addChatDocument({label: 'name', timestamp: date, content: item});
     this.messages.push({label: 'name', timestamp: date, content: item});
+    this.fb.updateChatDocument('yFGW8IZeWKP7pT96Yj6U', item);
+    // this.fb.addChatDocument(item);
     this.closeButton();
   }
   closeButton() {
@@ -44,6 +47,7 @@ export class ChatPage implements OnInit {
     this.giphyService.random().subscribe(gif => {
       const date = this.getDate();
       this.messages.push({label: 'name', timestamp: date, content: gif.data});
+      // this.fb.addChatDocument(gif);
       console.log(gif.data);
     });
   }
@@ -57,7 +61,6 @@ export class ChatPage implements OnInit {
   }
   getDate() {
     const today = new Date();
-    //
     const timestamp = today.getHours() + ':' + today.getMinutes() + ' on ' +
         (today.getMonth() + 1 ) + '/' + today.getDate() + '/' + today.getFullYear();
     return (timestamp);
