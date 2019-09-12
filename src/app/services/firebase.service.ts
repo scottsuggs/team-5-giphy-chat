@@ -22,6 +22,7 @@ export class FirebaseService {
   user: Observable<User>;
   chats: Observable<Chat[]>;
   chat: Observable<Chat>;
+  currentUser: User;
 
   constructor(private db: AngularFirestore) {
     this.usersCollection = db.collection<User>('users');
@@ -30,6 +31,15 @@ export class FirebaseService {
     this.chats = this.chatsCollection.valueChanges({ idField: 'id' });
     this.users = this.usersCollection.valueChanges({ idField: 'id' });
   }
+
+  //====current user===
+  setCurrentUser(user: User) {}
+
+  getCurrentUser(): User {
+    return this.currentUser;
+  }
+
+  ///===end current user====
 
   //====Users====
   addUserDocument(user: User) {

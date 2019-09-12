@@ -15,15 +15,12 @@
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="log()">log</ion-button>
   <ion-list *ngIf="query">
     <ion-list-header>Users</ion-list-header>
     <div *ngFor="let user of users | sortUsers: query">
       <ion-item (click)="addUser(user)">
         <ion-label>
-          <span>
-            {{ user.displayName ? user.displayName : user.email }}
-          </span>
+          {{ user.displayName ? user.displayName : user.email }}
         </ion-label>
         <div>
           <ion-text>{{ user.displayName ? user.email : '' }}</ion-text>
