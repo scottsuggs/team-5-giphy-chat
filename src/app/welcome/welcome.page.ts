@@ -1,30 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from "@ionic/angular";
-import { AuthProvider } from "ngx-auth-firebaseui";
-import { AngularFireAuth } from "@angular/fire/auth";
+
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthProvider } from 'ngx-auth-firebaseui';
+import { FirebaseService } from '../services/firebase.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.page.html',
-  styleUrls: ['./welcome.page.scss'],
+  styleUrls: ['./welcome.page.scss']
 })
 export class WelcomePage implements OnInit {
   providers = AuthProvider;
 
-  constructor(private navCtrl: NavController,
-              private angularFireAuth: AngularFireAuth
-) { }
+  constructor(
+    private navCtrl: NavController,
+    private angularFireAuth: AngularFireAuth,
+    private firebase: FirebaseService
+  ) {}
 
   ngOnInit() {
-    console.log(this.angularFireAuth.authState.subscribe(state => console.log(state)))
+    console.log(
+      this.angularFireAuth.authState.subscribe(state => console.log(state))
+    );
   }
 
   loginUser() {
+    // this.firebase.setCurrentUser();
     this.navCtrl.navigateForward('chats');
   }
 
   printError(event) {
-    console.log(event)
+    console.log(event);
   }
-
 }

@@ -7,10 +7,17 @@ import { User } from '../interfaces/user';
 })
 export class SortUsersPipe implements PipeTransform {
   transform(users: User[], query: string): User[] {
-    return users.filter(
-      user =>
-        user.displayName.toLowerCase().includes(query.toLowerCase()) ||
-        user.email.toLowerCase().includes(query.toLowerCase())
-    );
+    return users.filter(user => {
+      //if the user has a displayName
+      if (user.displayName) {
+        return (
+          user.displayName.toLowerCase().includes(query.toLowerCase()) ||
+          user.email.toLowerCase().includes(query.toLowerCase())
+        );
+        //if no displayName, just go off their email
+      } else {
+        return user.email.toLowerCase().includes(query.toLowerCase());
+      }
+    });
   }
 }
