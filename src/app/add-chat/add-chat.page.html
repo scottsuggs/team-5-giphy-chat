@@ -18,7 +18,7 @@
   <ion-list *ngIf="query">
     <ion-list-header>Users</ion-list-header>
     <div *ngFor="let user of users | sortUsers: query">
-      <ion-item (click)="addUser(user)">
+      <ion-item (click)="addChat(user)">
         <ion-label>
           {{ user.displayName ? user.displayName : user.email }}
         </ion-label>

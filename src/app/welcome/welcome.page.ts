@@ -26,7 +26,7 @@ export class WelcomePage implements OnInit {
   }
 
   loginUser() {
-    this.firebase.setCurrentUser();
+    // this.firebase.setCurrentUser();
     this.navCtrl.navigateForward('chats');
   }
 
