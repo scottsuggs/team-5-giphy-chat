@@ -1,9 +1,15 @@
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+import { AuthGuard } from './auth/auth.guard';
 import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'welcome', pathMatch: 'full' },
+  {
+    path: '',
+    redirectTo: 'welcome',
+    pathMatch: 'full',
+    canActivate: [AuthGuard]
+  },
   {
     path: 'welcome',
     loadChildren: () =>
