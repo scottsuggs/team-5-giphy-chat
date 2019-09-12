@@ -21,10 +21,12 @@
     <div *ngFor="let user of users | sortUsers: query">
       <ion-item (click)="addUser(user)">
         <ion-label>
-          {{ user.displayName | titlecase }}
+          <span>
+            {{ user.displayName ? user.displayName : user.email }}
+          </span>
         </ion-label>
         <div>
-          <ion-text>{{ user.email }}</ion-text>
+          <ion-text>{{ user.displayName ? user.email : '' }}</ion-text>
         </div>
       </ion-item>
     </div>
