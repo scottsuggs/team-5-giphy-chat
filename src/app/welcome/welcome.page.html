@@ -1,6 +1,7 @@
 <ion-content>
   <ngx-auth-firebaseui
-          (onSuccess)="printUser()"
+          [providers]="[providers.Google]"
+          (onSuccess)="loginUser()"
           (onError)="printError()">
   </ngx-auth-firebaseui>
 </ion-content>
