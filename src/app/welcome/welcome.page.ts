@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController } from "@ionic/angular";
 import { AuthProvider } from "ngx-auth-firebaseui";
-import {AngularFireAuth} from "@angular/fire/auth";
+import { AngularFireAuth } from "@angular/fire/auth";
 
 @Component({
   selector: 'app-welcome',

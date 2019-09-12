@@ -1,9 +1,9 @@
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-
 import { NgModule } from '@angular/core';
+import { AuthGuard } from "./auth/auth.guard";
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'welcome', pathMatch: 'full'},
+  { path: '', redirectTo: 'welcome', pathMatch: 'full', canActivate: [AuthGuard]},
   {
     path: 'welcome',
     loadChildren: () => import('./welcome/welcome.module').then(m => m.WelcomePageModule )
