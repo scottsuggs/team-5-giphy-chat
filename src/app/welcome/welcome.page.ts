@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AuthProvider } from 'ngx-auth-firebaseui';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -8,12 +10,20 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./welcome.page.scss']
 })
 export class WelcomePage implements OnInit {
-  constructor(private navCtrl: NavController) {}
+  providers = AuthProvider;
 
-  ngOnInit() {}
+  constructor(
+    private navCtrl: NavController,
+    private angularFireAuth: AngularFireAuth
+  ) {}
 
-  printUser(event) {
-    console.log(event);
+  ngOnInit() {
+    console.log(
+      this.angularFireAuth.authState.subscribe(state => console.log(state))
+    );
+  }
+
+  loginUser() {
     this.navCtrl.navigateForward('chats');
   }
 
