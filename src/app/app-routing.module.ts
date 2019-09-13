@@ -30,10 +30,6 @@ export const routes: Routes = [
     loadChildren: './user/user.module#UserPageModule'
   },
   {
-    path: 'users',
-    loadChildren: './user/users/users.module#UsersPageModule'
-  },
-  {
     path: 'add-chat',
     loadChildren: './add-chat/add-chat.module#AddChatPageModule'
   }
