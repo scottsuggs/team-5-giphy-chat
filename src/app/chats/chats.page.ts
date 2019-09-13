@@ -38,7 +38,8 @@ export class ChatsPage implements OnInit, OnDestroy {
   addChat() {
     this.navCtrl.navigateForward('add-chat');
   }
-  handleChatClick(id: string) {
+  openChat(id: string) {
+    this.firebase.setChatDocument(id);
     this.navCtrl.navigateForward('chat');
     console.log('opening chat: ', id);
   }

@@ -22,7 +22,7 @@
     </div>
     <div *ngIf="chats">
       <ion-item
-        (click)="handleChatClick(chat.id)"
+        (click)="openChat(chat.id)"
         *ngFor="let chat of chats | filterChats: currentUser; index as i"
       >
         <ion-avatar slot="start">
