@@ -15,9 +15,9 @@
       <ion-icon name="contact"></ion-icon>
       <ion-label>{{ message.label }}</ion-label>
       <ion-label float-right="right">{{ message.timestamp }}</ion-label>
-      <img
+      <ion-img
         src="https://media2.giphy.com/media/{{ message.content.id }}/giphy.gif"
-      />
+      ></ion-img>
     </ion-card>
   </div>
 
@@ -40,10 +40,10 @@
     <ion-grid *ngIf="!searched">
       <ion-row>
         <ion-col *ngFor="let item of trending" size="4">
-          <img
+          <ion-img
             (click)="sendGif(item)"
             src="https://media2.giphy.com/media/{{ item.id }}/giphy.gif"
-          />
+          ></ion-img>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -51,10 +51,10 @@
     <ion-grid *ngIf="searched">
       <ion-row>
         <ion-col *ngFor="let item of searched" size="4">
-          <img
+          <ion-img
             (click)="sendGif(item)"
             src="https://media2.giphy.com/media/{{ item.id }}/giphy.gif"
-          />
+          ></ion-img>
         </ion-col>
       </ion-row>
     </ion-grid>

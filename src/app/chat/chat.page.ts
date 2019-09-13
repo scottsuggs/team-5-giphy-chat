@@ -1,31 +1,42 @@
-import { Component, OnInit } from '@angular/core';
-import {GiphyService} from '../services/giphy.service';
-import {Giphy} from '../interfaces/giphy';
-import {FirebaseService} from '../services/firebase.service';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+
+import { Chat } from '../interfaces/chat';
+import { FirebaseService } from '../services/firebase.service';
+import { Giphy } from '../interfaces/giphy';
+import { GiphyService } from '../services/giphy.service';
+import { SubscriptionLike } from 'rxjs';
 
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.page.html',
-  styleUrls: ['./chat.page.scss'],
+  styleUrls: ['./chat.page.scss']
 })
-export class ChatPage implements OnInit {
+export class ChatPage implements OnInit, OnDestroy {
+  chat: Chat;
   messages = [];
   trending: any[] = [];
   searched;
   buttonClicked = false;
+  chatSubscription: SubscriptionLike;
 
   constructor(
-      private giphyService: GiphyService,
-      private fb: FirebaseService,
-  ) { }
+    private giphyService: GiphyService,
+    private fb: FirebaseService
+  ) {}
 
   ngOnInit() {
+    this.chatSubscription = this.fb.getChatDocument().subscribe(data => {
+      this.chat = data;
+      console.log('chat', this.chat);
+    });
+  }
+  ngOnDestroy(): void {
+    this.chatSubscription.unsubscribe();
   }
   addButtonClicked() {
     console.log('add button clicked');
-    this.giphyService.trending().subscribe( gif => {
+    this.giphyService.trending().subscribe(gif => {
       this.trending = gif.data;
-      // console.log(this.trending);
     });
     this.buttonClicked = true;
     console.log('searched:', this.searched);
@@ -34,8 +45,8 @@ export class ChatPage implements OnInit {
     console.log('gif sent', item);
     const date = this.getDate();
     // this.fb.addChatDocument({label: 'name', timestamp: date, content: item});
-    this.messages.push({label: 'name', timestamp: date, content: item});
-    this.fb.updateChatDocument('yFGW8IZeWKP7pT96Yj6U', item);
+    this.chat.messages.push({ label: 'name', timestamp: date, content: item });
+    this.fb.updateChatDocument(this.chat.id, this.chat);
     // this.fb.addChatDocument(item);
     this.closeButton();
   }
@@ -44,12 +55,16 @@ export class ChatPage implements OnInit {
     this.searched = undefined;
   }
   sendRandomGif() {
-    this.giphyService.random().subscribe(gif => {
-      const date = this.getDate();
-      this.messages.push({label: 'name', timestamp: date, content: gif.data});
-      // this.fb.addChatDocument(gif);
-      console.log(gif.data);
-    });
+    // this.giphyService.random().subscribe(gif => {
+    //   const date = this.getDate();
+    //   this.chat.messages.push({
+    //     label: 'name',
+    //     timestamp: date,
+    //     content: gif.data
+    //   });
+    //   console.log(gif.data);
+    //   this.fb.updateChatDocument(this.chat.id, this.chat);
+    // });
   }
   searchSubmitted(event) {
     const searchTerm = event.target.value;
@@ -61,8 +76,16 @@ export class ChatPage implements OnInit {
   }
   getDate() {
     const today = new Date();
-    const timestamp = today.getHours() + ':' + today.getMinutes() + ' on ' +
-        (today.getMonth() + 1 ) + '/' + today.getDate() + '/' + today.getFullYear();
-    return (timestamp);
+    const timestamp =
+      today.getHours() +
+      ':' +
+      today.getMinutes() +
+      ' on ' +
+      (today.getMonth() + 1) +
+      '/' +
+      today.getDate() +
+      '/' +
+      today.getFullYear();
+    return timestamp;
   }
 }
