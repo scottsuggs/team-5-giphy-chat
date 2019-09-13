@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NavController} from "@ionic/angular";
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthProvider } from 'ngx-auth-firebaseui';
@@ -32,12 +33,12 @@ export class WelcomePage implements OnInit {
     );
   }
 
+
   loginUser() {
     // this.firebase.setCurrentUser();
     this.navCtrl.navigateForward('chats');
   }
 
   printError(event) {
-    console.log(event);
   }
 }
