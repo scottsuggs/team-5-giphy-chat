@@ -76,6 +76,8 @@ export class FirebaseService {
     return (this.chat = this.chatDocument.valueChanges());
   }
   setChatDocument(id: string) {
+    console.log('setting chatDocument to: ', this.CHATS_URL + id);
+
     this.chatDocument = this.db.doc<Chat>(`${this.CHATS_URL}${id}`);
   }
   removeChatDocument(id: string) {
@@ -84,7 +86,9 @@ export class FirebaseService {
   }
   updateChatDocument(id: string, data: Chat) {
     this.setChatDocument(id);
-    this.chatDocument.update(data);
+    this.chatDocument.update({
+      messages: data.messages
+    });
   }
   getChats(): Observable<Chat[]> {
     return this.chats;

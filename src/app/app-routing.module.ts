@@ -1,7 +1,5 @@
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-// import { AuthGuard } from './auth/auth.guard';
-import { LoggedInGuard } from 'ngx-auth-firebaseui';
 import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
@@ -9,7 +7,6 @@ export const routes: Routes = [
     path: '',
     redirectTo: 'welcome',
     pathMatch: 'full'
-    // canActivate: [AuthGuard]
   },
   {
     path: 'welcome',
@@ -19,7 +16,6 @@ export const routes: Routes = [
   {
     path: 'chats',
     loadChildren: './chats/chats.module#ChatsPageModule'
-    // canActivate: [LoggedInGuard]
   },
   {
     path: 'chat',

@@ -6,6 +6,7 @@ import { Chat } from '../interfaces/chat';
 import { ChatListService } from '../services/chat-list.service';
 import { FirebaseService } from '../services/firebase.service';
 import { User } from '../interfaces/user';
+import { tap } from 'rxjs/operators';
 import { v4 as uuidv4 } from 'uuid';
 
 @Component({
@@ -39,6 +40,8 @@ export class ChatsPage implements OnInit, OnDestroy {
     this.navCtrl.navigateForward('add-chat');
   }
   openChat(id: string) {
+    console.log('/chats setting id to: ', id);
+
     this.firebase.setChatDocument(id);
     this.navCtrl.navigateForward('chat');
     console.log('opening chat: ', id);

@@ -46,6 +46,8 @@ export class ChatPage implements OnInit, OnDestroy {
     const date = this.getDate();
     // this.fb.addChatDocument({label: 'name', timestamp: date, content: item});
     this.chat.messages.push({ label: 'name', timestamp: date, content: item });
+    console.log('pushing chat to db: ', this.chat);
+
     this.fb.updateChatDocument(this.chat.id, this.chat);
     // this.fb.addChatDocument(item);
     this.closeButton();
