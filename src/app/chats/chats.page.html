@@ -10,30 +10,32 @@
 </ion-header>
 
 <ion-content>
+  <ion-button expand="block" (click)="addChat()">
+    Add Chat
+  </ion-button>
   <ion-list>
-    <ion-button (click)="addChat()">
-      Add Chat
-    </ion-button>
     <ion-list-header>
-      <ion-text>Contacts</ion-text>
+      <ion-text>Conversations</ion-text>
     </ion-list-header>
     <div *ngIf="chats">
-      <ion-item
-        (click)="handleChatClick(chat.id)"
-        *ngFor="let chat of chats | async; index as i"
+      <ion-item-sliding
+        *ngFor="let chat of chats | filterChats: currentUser; index as i"
       >
-        <ion-avatar slot="start">
-          <ion-icon size="large" name="person"> </ion-icon>
-        </ion-avatar>
-        <ion-label>
-          <h1>
-            {{ chat.members[0].name }}
-          </h1>
-          <h2>
-            {{ chat.members[0].id }}
-          </h2></ion-label
-        >
-      </ion-item>
+        <ion-item (click)="openChat(chat.id)">
+          <!-- <ion-avatar slot="start">
+            <ion-icon size="large" name="person"> </ion-icon>
+          </ion-avatar> -->
+          <ion-label *ngFor="let member of chat.members">
+            {{ member.displayName }}
+          </ion-label>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option (click)="deleteChat(chat.id)" color="danger">
+            Delete
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
     </div>
   </ion-list>
 </ion-content>

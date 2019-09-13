@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { LoadingController, NavController } from '@ionic/angular';
+import { Observable, SubscriptionLike } from 'rxjs';
 
 import { Chat } from '../interfaces/chat';
 import { ChatListService } from '../services/chat-list.service';
 import { FirebaseService } from '../services/firebase.service';
-import { Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -13,24 +13,39 @@ import { v4 as uuidv4 } from 'uuid';
   templateUrl: './chats.page.html',
   styleUrls: ['./chats.page.scss']
 })
-export class ChatsPage implements OnInit {
-  chats: Observable<Chat[]> = this.chatsService.getChats();
+export class ChatsPage implements OnInit, OnDestroy {
+  chats: Chat[];
+  subscription: SubscriptionLike;
+  currentUser: User = this.firebase.getCurrentUser();
 
   constructor(
-    private chatsService: ChatListService,
     private navCtrl: NavController,
     private firebase: FirebaseService
   ) {}
 
   ngOnInit() {
-    console.log(this.chats);
+    this.subscription = this.firebase.getChats().subscribe(data => {
+      this.chats = data;
+      console.log('current chats', this.chats);
+    });
+    console.log('the current user is: ', this.firebase.getCurrentUser());
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
   addChat() {
     this.navCtrl.navigateForward('add-chat');
   }
-  handleChatClick(id: string) {
+  openChat(id: string) {
+    this.firebase.setChatDocument(id);
     this.navCtrl.navigateForward('chat');
     console.log('opening chat: ', id);
+  }
+  deleteChat(id: string) {
+    console.log('removing chat: ', id);
+
+    this.firebase.removeChatDocument(id);
   }
 }

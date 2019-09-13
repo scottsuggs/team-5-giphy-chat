@@ -14,14 +14,14 @@ import { routes } from './app-routing.module';
 export class AppComponent {
   items: Observable<any[]>;
   public appPages = [];
-  private menuRoutes = ['home', 'chats', 'chat', 'user'];
+  private menuRoutes = ['chats', 'user'];
   private menuIcons = {
     //current icons, feel free to add any for your routes
     home: 'home',
     chats: 'chatbubbles',
     chat: 'contacts',
     list: 'list',
-    user: 'contacts'
+    user: 'person'
   };
 
   constructor(

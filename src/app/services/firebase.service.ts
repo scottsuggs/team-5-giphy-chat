@@ -18,10 +18,12 @@ export class FirebaseService {
   private chatsCollection: AngularFirestoreCollection<Chat>;
   private chatDocument: AngularFirestoreDocument<Chat>;
   private USERS_URL = 'users/';
+  private CHATS_URL = 'chats/';
   users: Observable<User[]>;
   user: Observable<User>;
   chats: Observable<Chat[]>;
   chat: Observable<Chat>;
+  currentUser: User;
 
   constructor(private db: AngularFirestore) {
     this.usersCollection = db.collection<User>('users');
@@ -30,6 +32,18 @@ export class FirebaseService {
     this.chats = this.chatsCollection.valueChanges({ idField: 'id' });
     this.users = this.usersCollection.valueChanges({ idField: 'id' });
   }
+
+  //====current user===
+  //TODO: set current user when the user logs in
+  setCurrentUser(user: User) {
+    this.currentUser = user;
+  }
+
+  getCurrentUser(): User {
+    return this.currentUser;
+  }
+
+  ///===end current user====
 
   //====Users====
   addUserDocument(user: User) {
@@ -62,7 +76,7 @@ export class FirebaseService {
     return (this.chat = this.chatDocument.valueChanges());
   }
   setChatDocument(id: string) {
-    this.chatDocument = this.db.doc<Chat>(`${this.USERS_URL}${id}`);
+    this.chatDocument = this.db.doc<Chat>(`${this.CHATS_URL}${id}`);
   }
   removeChatDocument(id: string) {
     this.setChatDocument(id);

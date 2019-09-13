@@ -12,10 +12,12 @@
 <ion-content>
   <div *ngIf="messages">
     <ion-card *ngFor="let message of messages">
-      <ion-icon name="contact" ></ion-icon>
-      <ion-label>{{message.label}}</ion-label>
-      <ion-label float-right="right">{{message.timestamp}}</ion-label>
-      <img src="https://media2.giphy.com/media/{{message.content.id}}/giphy.gif" />
+      <ion-icon name="contact"></ion-icon>
+      <ion-label>{{ message.label }}</ion-label>
+      <ion-label float-right="right">{{ message.timestamp }}</ion-label>
+      <img
+        src="https://media2.giphy.com/media/{{ message.content.id }}/giphy.gif"
+      />
     </ion-card>
   </div>
 
@@ -27,15 +29,21 @@
       send random gif
     </ion-button>
   </div>
+  <!-- consider changing the <img/>'s  to <ion-img></ion-img>. They're more optimized -->
   <ion-card *ngIf="buttonClicked == true">
-
     <ion-button color="secondary" (click)="closeButton()">x</ion-button>
-    <ion-searchbar placeholder="search gifs" (ionInput)="searchSubmitted($event)"></ion-searchbar>
+    <ion-searchbar
+      placeholder="search gifs"
+      (ionInput)="searchSubmitted($event)"
+    ></ion-searchbar>
 
     <ion-grid *ngIf="!searched">
       <ion-row>
         <ion-col *ngFor="let item of trending" size="4">
-          <img (click)="sendGif(item)" src="https://media2.giphy.com/media/{{item.id}}/giphy.gif"/>
+          <img
+            (click)="sendGif(item)"
+            src="https://media2.giphy.com/media/{{ item.id }}/giphy.gif"
+          />
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -43,11 +51,12 @@
     <ion-grid *ngIf="searched">
       <ion-row>
         <ion-col *ngFor="let item of searched" size="4">
-          <img (click)="sendGif(item)" src="https://media2.giphy.com/media/{{item.id}}/giphy.gif"/>
+          <img
+            (click)="sendGif(item)"
+            src="https://media2.giphy.com/media/{{ item.id }}/giphy.gif"
+          />
         </ion-col>
       </ion-row>
     </ion-grid>
-
-
   </ion-card>
 </ion-content>

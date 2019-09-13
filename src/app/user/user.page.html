@@ -4,19 +4,20 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      User
+      {{ currentUser.displayName }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <ion-card-title>User Profile</ion-card-title>
-    <ion-card-content>username</ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-title>Favorite Gifs</ion-card-title>
-    <ion-card-content></ion-card-content>
-  </ion-card>
-
+  <ion-title>
+    Your Favorite Gifs!
+  </ion-title>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let gif of currentUser.gifs" size="4">
+        <ion-img [src]="gif.data.image_url"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
