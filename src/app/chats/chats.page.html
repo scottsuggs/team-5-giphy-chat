@@ -15,24 +15,22 @@
       Add Chat
     </ion-button>
     <ion-list-header>
-      <ion-text>Contacts</ion-text>
+      <ion-text>Conversations</ion-text>
     </ion-list-header>
+    <div *ngIf="!chats">
+      You have no chats :(
+    </div>
     <div *ngIf="chats">
       <ion-item
         (click)="handleChatClick(chat.id)"
-        *ngFor="let chat of chats | async; index as i"
+        *ngFor="let chat of chats | filterChats: currentUser; index as i"
       >
         <ion-avatar slot="start">
           <ion-icon size="large" name="person"> </ion-icon>
         </ion-avatar>
-        <ion-label>
-          <h1>
-            {{ chat.members[0].name }}
-          </h1>
-          <h2>
-            {{ chat.members[0].id }}
-          </h2></ion-label
-        >
+        <ion-label *ngFor="let member of chat.members">
+          {{ member.displayName }}
+        </ion-label>
       </ion-item>
     </div>
   </ion-list>
