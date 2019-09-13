@@ -1,23 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from '../interfaces/user';
+
+import { FirebaseService } from '../services/firebase.service';
+import { User } from '../interfaces/user';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.page.html',
-  styleUrls: ['./user.page.scss'],
+  styleUrls: ['./user.page.scss']
 })
 export class UserPage implements OnInit {
-  users: User[];
-  constructor() { }
+  currentUser: User;
+  constructor(private firebase: FirebaseService) {}
 
   ngOnInit() {
+    this.currentUser = this.firebase.getCurrentUser();
   }
-  processForm(event) {
-    console.log('form submitted');
-  }
-  handleNameValue(event) {
-    const name = event.target.value;
-    console.log(name);
-  }
-
 }

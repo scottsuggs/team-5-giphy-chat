@@ -1,6 +1,7 @@
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 // import { AuthGuard } from './auth/auth.guard';
+import { LoggedInGuard } from 'ngx-auth-firebaseui';
 import { NgModule } from '@angular/core';
 
 export const routes: Routes = [
@@ -15,10 +16,23 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./welcome/welcome.module').then(m => m.WelcomePageModule)
   },
-  { path: 'chats', loadChildren: './chats/chats.module#ChatsPageModule' },
-  { path: 'chat', loadChildren: './chat/chat.module#ChatPageModule' },
-  { path: 'user', loadChildren: './user/user.module#UserPageModule' },
-  { path: 'users', loadChildren: './user/users/users.module#UsersPageModule' },
+  {
+    path: 'chats',
+    loadChildren: './chats/chats.module#ChatsPageModule'
+    // canActivate: [LoggedInGuard]
+  },
+  {
+    path: 'chat',
+    loadChildren: './chat/chat.module#ChatPageModule'
+  },
+  {
+    path: 'user',
+    loadChildren: './user/user.module#UserPageModule'
+  },
+  {
+    path: 'users',
+    loadChildren: './user/users/users.module#UsersPageModule'
+  },
   {
     path: 'add-chat',
     loadChildren: './add-chat/add-chat.module#AddChatPageModule'

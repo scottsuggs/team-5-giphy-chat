@@ -1,5 +1,5 @@
+import { Chat } from './chat';
 import { Giphy } from './giphy';
-import {Chat} from './chat';
 
 export interface User {
   displayName: string;

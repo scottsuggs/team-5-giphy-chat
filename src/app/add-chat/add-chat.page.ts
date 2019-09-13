@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { FirebaseService } from '../services/firebase.service';
+import { NavController } from '@ionic/angular';
 import { User } from '../interfaces/user';
 
 @Component({
@@ -13,7 +14,10 @@ export class AddChatPage implements OnInit, OnDestroy {
   query: string;
   subscription;
 
-  constructor(private firebase: FirebaseService) {}
+  constructor(
+    private firebase: FirebaseService,
+    private navCtrl: NavController
+  ) {}
 
   ngOnInit() {
     this.subscription = this.firebase.getUsers().subscribe(
@@ -30,8 +34,9 @@ export class AddChatPage implements OnInit, OnDestroy {
 
   addChat(user: User) {
     this.firebase.addChatDocument({
-      members: [user],
+      members: [this.firebase.getCurrentUser(), user],
       messages: []
     });
+    this.navCtrl.navigateBack('chats');
   }
 }

@@ -21,7 +21,14 @@ export class WelcomePage implements OnInit {
 
   ngOnInit() {
     console.log(
-      this.angularFireAuth.authState.subscribe(state => console.log(state))
+      this.angularFireAuth.authState.subscribe(user => {
+        this.firebase.setCurrentUser({
+          displayName: user.displayName,
+          email: user.email,
+          id: user.uid,
+          gifs: []
+        });
+      })
     );
   }
 
