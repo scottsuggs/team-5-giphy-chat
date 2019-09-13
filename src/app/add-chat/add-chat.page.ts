@@ -30,7 +30,7 @@ export class AddChatPage implements OnInit, OnDestroy {
 
   addChat(user: User) {
     this.firebase.addChatDocument({
-      members: [user],
+      members: [this.firebase.getCurrentUser(), user],
       messages: []
     });
   }
