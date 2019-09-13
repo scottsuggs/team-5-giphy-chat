@@ -18,6 +18,7 @@ export class FirebaseService {
   private chatsCollection: AngularFirestoreCollection<Chat>;
   private chatDocument: AngularFirestoreDocument<Chat>;
   private USERS_URL = 'users/';
+  private CHATS_URL = 'chats/';
   users: Observable<User[]>;
   user: Observable<User>;
   chats: Observable<Chat[]>;
@@ -75,7 +76,7 @@ export class FirebaseService {
     return (this.chat = this.chatDocument.valueChanges());
   }
   setChatDocument(id: string) {
-    this.chatDocument = this.db.doc<Chat>(`${this.USERS_URL}${id}`);
+    this.chatDocument = this.db.doc<Chat>(`${this.CHATS_URL}${id}`);
   }
   removeChatDocument(id: string) {
     this.setChatDocument(id);
