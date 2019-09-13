@@ -8,11 +8,16 @@ import { User } from '../interfaces/user';
 })
 export class FilterChatsPipe implements PipeTransform {
   transform(chats: Chat[], user: User): any {
-    console.log(
-      'filtered chats',
-      chats.filter((chat, index) => chat.members[index].id === user.id)
-    );
+    let matches: Chat[] = [];
+    chats.forEach(chat => {
+      chat.members.forEach(member => {
+        if (member.id == user.id) {
+          matches.push(chat);
+        }
+      });
+    });
+    console.log('matches', matches);
 
-    return chats.filter((chat, index) => chat.members[index].id === user.id);
+    return matches;
   }
 }
