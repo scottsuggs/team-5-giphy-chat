@@ -24,6 +24,10 @@ export class ChatsPage implements OnInit {
 
   ngOnInit() {
     console.log(this.chats);
+    console.log(
+      'the current user is: ',
+      this.firebase.getCurrentUser().displayName
+    );
   }
 
   addChat() {
