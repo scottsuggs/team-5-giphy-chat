@@ -15,9 +15,10 @@
       <ion-icon name="contact"></ion-icon>
       <ion-label>{{ fb.currentUser.displayName }}</ion-label>
       <ion-label float-right="right">{{ message.timestamp }}</ion-label>
-      <ion-img
+      <!-- <ion-img
         src="https://media2.giphy.com/media/{{ message.content.id }}/giphy.gif"
-      ></ion-img>
+      ></ion-img> -->
+      <ion-img src="{{ message.content.images.fixed_width.url }}"></ion-img>
     </ion-card>
   </div>
 

@@ -6,7 +6,7 @@ export interface Chat {
   members: User[];
   id?: string; //assigned by firebase
   messages: {
-    label: string;
+    label?: string;
     timestamp: string;
     content?: Giphy | RandomGiphy;
   }[];

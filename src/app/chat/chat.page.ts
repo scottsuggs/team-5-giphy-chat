@@ -4,7 +4,10 @@ import { Chat } from '../interfaces/chat';
 import { FirebaseService } from '../services/firebase.service';
 import { Giphy } from '../interfaces/giphy';
 import { GiphyService } from '../services/giphy.service';
+import { RandomGiphy } from '../interfaces/random-giphy';
 import { SubscriptionLike } from 'rxjs';
+
+import undefined = require('firebase/empty-import');
 
 @Component({
   selector: 'app-chat',
@@ -40,7 +43,7 @@ export class ChatPage implements OnInit, OnDestroy {
     this.buttonClicked = true;
     console.log('searched:', this.searched);
   }
-  sendGif(item) {
+  sendGif(item: Giphy) {
     console.log('gif sent', item);
     const date = this.getDate();
     this.chat.messages.push({ label: 'name', timestamp: date, content: item });
@@ -56,15 +59,20 @@ export class ChatPage implements OnInit, OnDestroy {
   sendRandomGif() {
     this.giphyService.random().subscribe(gif => {
       const date = this.getDate();
+      console.log('pushing gif into chats: ', gif);
+
       this.chat.messages.push({
         label: 'name',
         timestamp: date,
-        content: gif
+        content: gif.data
       });
       console.log(gif.data);
       this.fb.updateChatDocument(this.chat.id, this.chat);
     });
   }
+
+  checkIfRandom(gif: RandomGiphy | Giphy) {}
+
   searchSubmitted(event) {
     const searchTerm = event.target.value;
     console.log(searchTerm);

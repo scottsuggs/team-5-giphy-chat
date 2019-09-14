@@ -41,7 +41,7 @@ export class GiphyService {
       .get<RandomGiphy>(
         `${this.gifsUrl}random?api_key=${this.apiKey}&tag=${tag}`
       )
-      .pipe(tap(data => console.log(data, 'giphy random results')));
+      .pipe(tap(data => console.log('giphy random results', data)));
   }
 
   trending(limit: number = 25, offset: number = 0): Observable<Giphy> {
