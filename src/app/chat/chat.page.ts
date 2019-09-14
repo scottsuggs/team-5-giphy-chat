@@ -13,16 +13,12 @@ import { SubscriptionLike } from 'rxjs';
 })
 export class ChatPage implements OnInit, OnDestroy {
   chat: Chat;
-  messages = [];
   trending: any[] = [];
   searched;
   buttonClicked = false;
   chatSubscription: SubscriptionLike;
 
-  constructor(
-    private giphyService: GiphyService,
-    private fb: FirebaseService
-  ) {}
+  constructor(private giphyService: GiphyService, public fb: FirebaseService) {}
 
   ngOnInit() {
     this.chatSubscription = this.fb.getChatDocument().subscribe(data => {

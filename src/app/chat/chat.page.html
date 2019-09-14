@@ -10,10 +10,10 @@
 </ion-header>
 
 <ion-content>
-  <div *ngIf="messages">
-    <ion-card *ngFor="let message of messages">
+  <div *ngIf="chat">
+    <ion-card *ngFor="let message of chat.messages">
       <ion-icon name="contact"></ion-icon>
-      <ion-label>{{ message.label }}</ion-label>
+      <ion-label>{{ fb.currentUser.displayName }}</ion-label>
       <ion-label float-right="right">{{ message.timestamp }}</ion-label>
       <ion-img
         src="https://media2.giphy.com/media/{{ message.content.id }}/giphy.gif"
