@@ -8,6 +8,6 @@ export interface Chat {
   messages: {
     label?: string;
     timestamp: string;
-    content?: Giphy | RandomGiphy;
+    content?: any;
   }[];
 }

@@ -7,8 +7,6 @@ import { GiphyService } from '../services/giphy.service';
 import { RandomGiphy } from '../interfaces/random-giphy';
 import { SubscriptionLike } from 'rxjs';
 
-import undefined = require('firebase/empty-import');
-
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.page.html',
