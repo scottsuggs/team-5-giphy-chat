@@ -47,12 +47,10 @@ export class ChatPage implements OnInit, OnDestroy {
   sendGif(item) {
     console.log('gif sent', item);
     const date = this.getDate();
-    // this.fb.addChatDocument({label: 'name', timestamp: date, content: item});
     this.chat.messages.push({ label: 'name', timestamp: date, content: item });
     console.log('pushing chat to db: ', this.chat);
 
     this.fb.updateChatDocument(this.chat.id, this.chat);
-    // this.fb.addChatDocument(item);
     this.closeButton();
   }
   closeButton() {
@@ -60,16 +58,16 @@ export class ChatPage implements OnInit, OnDestroy {
     this.searched = undefined;
   }
   sendRandomGif() {
-    // this.giphyService.random().subscribe(gif => {
-    //   const date = this.getDate();
-    //   this.chat.messages.push({
-    //     label: 'name',
-    //     timestamp: date,
-    //     content: gif.data
-    //   });
-    //   console.log(gif.data);
-    //   this.fb.updateChatDocument(this.chat.id, this.chat);
-    // });
+    this.giphyService.random().subscribe(gif => {
+      const date = this.getDate();
+      this.chat.messages.push({
+        label: 'name',
+        timestamp: date,
+        content: gif
+      });
+      console.log(gif.data);
+      this.fb.updateChatDocument(this.chat.id, this.chat);
+    });
   }
   searchSubmitted(event) {
     const searchTerm = event.target.value;

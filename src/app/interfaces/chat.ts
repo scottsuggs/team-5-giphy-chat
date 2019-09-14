@@ -1,4 +1,5 @@
 import { Giphy } from './giphy';
+import { RandomGiphy } from './random-giphy';
 import { User } from './user';
 
 export interface Chat {
@@ -7,6 +8,6 @@ export interface Chat {
   messages: {
     label: string;
     timestamp: string;
-    content?: Giphy;
+    content?: Giphy | RandomGiphy;
   }[];
 }
