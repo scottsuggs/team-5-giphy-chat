@@ -1,7 +1,9 @@
 import {
+  Action,
   AngularFirestore,
   AngularFirestoreCollection,
-  AngularFirestoreDocument
+  AngularFirestoreDocument,
+  DocumentSnapshot
 } from '@angular/fire/firestore';
 
 import { Chat } from '../interfaces/chat';
@@ -22,7 +24,7 @@ export class FirebaseService {
   users: Observable<User[]>;
   user: Observable<User>;
   chats: Observable<Chat[]>;
-  chat: Observable<Chat>;
+  chat: Observable<Action<DocumentSnapshot<Chat>>>;
   currentUser: User;
 
   constructor(private db: AngularFirestore) {
@@ -72,8 +74,8 @@ export class FirebaseService {
   addChatDocument(chat: Chat) {
     this.chatsCollection.add(chat);
   }
-  getChatDocument(): Observable<Chat> {
-    return (this.chat = this.chatDocument.valueChanges());
+  getChatDocument(): Observable<Action<DocumentSnapshot<Chat>>> {
+    return (this.chat = this.chatDocument.snapshotChanges());
   }
   setChatDocument(id: string) {
     console.log('setting chatDocument to: ', this.CHATS_URL + id);

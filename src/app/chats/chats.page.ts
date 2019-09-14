@@ -7,7 +7,6 @@ import { ChatListService } from '../services/chat-list.service';
 import { FirebaseService } from '../services/firebase.service';
 import { User } from '../interfaces/user';
 import { tap } from 'rxjs/operators';
-import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-chats',

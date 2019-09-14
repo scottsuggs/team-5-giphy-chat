@@ -26,7 +26,10 @@ export class ChatPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.chatSubscription = this.fb.getChatDocument().subscribe(data => {
-      this.chat = data;
+      console.log('chat page, data: ', data);
+
+      this.chat = data.payload.data();
+      this.chat.id = data.payload.id;
       console.log('chat', this.chat);
     });
   }
