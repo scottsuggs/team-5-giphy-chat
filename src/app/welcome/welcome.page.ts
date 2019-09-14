@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AuthProvider } from 'ngx-auth-firebaseui';
+import { FirebaseService } from '../services/firebase.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -15,6 +16,7 @@ export class WelcomePage implements OnInit {
   constructor(
     private navCtrl: NavController,
     private angularFireAuth: AngularFireAuth,
+    private firebase: FirebaseService
   ) {}
 
   ngOnInit() {
